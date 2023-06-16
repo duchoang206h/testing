@@ -6,6 +6,10 @@ pipeline {
         }
     }
     stages {
+        stage('Initialize'){
+            def dockerHome = tool 'myDocker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
         stage('Checkout') {
             steps {
                 // Checkout your source code from version control system (e.g., Git)
